@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+
+int mdc(int x, int y) {
+    if (y == 0){
+        return x;
+        
+    }else {
+        return mdc (y, x % y);
+        
+    }
+}
+
+
+int main() {
+    int num1, num2;
+    
+    
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número: ");
+    scanf("%d" , &num2);
+    
+    printf("O MDC dos números %d e %d é: %d\n", num1, num2, mdc (num1, num2));
+     
+     
+     return 0;
+}
