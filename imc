@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+void imc(float peso, float altura, char sexo) {
+    float imc;
+    
+    // Cálculo do IMC
+    imc = peso / (altura * altura);
+
+    // Verificando o sexo antes de aplicar as condições de IMC
+    if (sexo == 'f' || sexo == 'F') {
+        printf("Sexo: Feminino\n");
+        
+        // Verificando o valor do IMC para sexo feminino
+        if (imc <= 18.5) {
+            printf("Seu peso é considerado baixo peso\n");
+        } 
+        else if (imc > 18.5 && imc < 24.99) {
+            printf("Seu peso é considerado normal\n");
+        } 
+        else if (imc >= 25 && imc < 29.9) {
+            printf("Seu peso é considerado sobrepeso\n");
+        } 
+        else if (imc >= 29.9) {
+            printf("Você está obesa\n");
+        } 
+    } else if (sexo == 'm' || sexo == 'M') {
+        printf("Sexo: Masculino\n");
+
+        // As mesmas condições podem ser usadas para o sexo masculino, ou você pode ajustar os valores
+        if (imc <= 18.5) {
+            printf("Seu peso é considerado baixo peso\n");
+        } 
+        else if (imc > 18.5 && imc < 24.99) {
+            printf("Seu peso é considerado normal\n");
+        } 
+        else if (imc >= 25 && imc < 29.9) {
+            printf("Seu peso é considerado sobrepeso\n");
+        } 
+        else if (imc >= 29.9) {
+            printf("Você está obeso\n");
+        } 
+    } else {
+        printf("Sexo inválido\n");
+    }
+}
+
+int main() {
+    float peso, altura;
+    char sexo;
+
+    printf("Informe seu peso (kg): ");
+    scanf("%f", &peso);
+
+    printf("Informe sua altura (m): ");
+    scanf("%f", &altura);
+
+    printf("Informe seu sexo (m para masculino, f para feminino): ");
+    scanf(" %c", &sexo);  // O espaço antes de %c garante que caracteres em branco sejam ignorados
+
+    imc(peso, altura, sexo);
+
+    return 0;
+}
